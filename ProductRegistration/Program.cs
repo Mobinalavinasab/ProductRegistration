@@ -1,4 +1,33 @@
+using Application.AppDbContext;
+using Data.Repositories;
+using Infrastructure.Entity.Role;
+using Infrastructure.Entity.User;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+builder.Services.AddDbContext<MyAppDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("ProductRegistration"));
+});
+
+builder.Services.AddIdentity<User, Role>(identityOptions =>
+    {
+        identityOptions.Password.RequireDigit = false;
+        identityOptions.Password.RequiredLength = 0;
+        identityOptions.Password.RequireNonAlphanumeric = false;
+        identityOptions.Password.RequireUppercase = false;
+        identityOptions.Password.RequireLowercase = false;
+
+        //UserName Settings
+        identityOptions.User.RequireUniqueEmail = false;
+    }).AddEntityFrameworkStores<MyAppDbContext>()
+    .AddDefaultTokenProviders();
+
+
 
 // Add services to the container.
 

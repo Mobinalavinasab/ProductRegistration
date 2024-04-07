@@ -1,0 +1,17 @@
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Application.deps.json
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Application.dll
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Application.pdb
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Core.dll
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Infrastructure.dll
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Infrastructure.pdb
+E:\project\ProductRegistration\Application\bin\Debug\net7.0\Core.pdb
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.dll
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\refint\Application.dll
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\Application.pdb
+E:\project\ProductRegistration\Application\obj\Debug\net7.0\ref\Application.dll

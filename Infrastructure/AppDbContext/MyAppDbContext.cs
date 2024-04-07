@@ -1,5 +1,6 @@
 ﻿using Core.Extension;
 using Infrastructure.Entity.BaseEntity;
+using Infrastructure.Entity.Product;
 using Infrastructure.Entity.Role;
 using Infrastructure.Entity.RoleClaim;
 using Infrastructure.Entity.User;
