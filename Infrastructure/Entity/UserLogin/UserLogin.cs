@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entity.UserLogin;
 
-public class UserLogin : IdentityUserLogin<int>
+public class UserLogin : IdentityUserLogin<long>
 {
     
 }

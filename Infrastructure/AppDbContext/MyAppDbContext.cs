@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.AppDbContext;
 
-public class MyAppDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+public class MyAppDbContext : IdentityDbContext<User, Role, long, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
 {
     public MyAppDbContext(DbContextOptions options) : base(options)
     {
@@ -26,5 +26,6 @@ public class MyAppDbContext : IdentityDbContext<User, Role, int, UserClaim, User
         var EntitiesAssembly = typeof(IEntity).Assembly;
         builder.allEntity<IEntity>(EntitiesAssembly);
         builder.ApplyConfigurationsFromAssembly(EntitiesAssembly);
+        
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entity.UserClaim;
 
-public class UserClaim : IdentityUserClaim<int>
+public class UserClaim : IdentityUserClaim<long>
 {
     
 }

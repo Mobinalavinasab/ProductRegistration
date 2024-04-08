@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Entity.User;
 
-public class User : IdentityUser<int> , IEntity
+public class User : IdentityUser<long> , IEntity
 {
     public string Name { get; set; }
-
+    
     public List<Product.Product> Products  { get; set; }
    
    public class PatientConfiguration:IEntityTypeConfiguration<User>

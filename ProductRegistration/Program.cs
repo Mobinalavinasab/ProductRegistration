@@ -106,7 +106,7 @@ builder.Services.AddAuthentication(options =>
              }
              if (context.AuthenticateFailure != null)
                  throw new Exception("Authenticate failure.");
-             throw new Exception("Authenticate failure.");
+             return Task.CompletedTask;
          },
          OnMessageReceived = context =>
          {

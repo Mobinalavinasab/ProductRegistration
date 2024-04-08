@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entity.RoleClaim;
 
-public class RoleClaim : IdentityRoleClaim<int>
+public class RoleClaim : IdentityRoleClaim<long>
 {
     
 }

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entity.UserToken;
 
-public class UserToken : IdentityUserToken<int>
+public class UserToken : IdentityUserToken<long>
 {
     
 }

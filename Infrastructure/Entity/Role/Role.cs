@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entity.Role;
 
-public class Role : IdentityRole<int>
+public class Role : IdentityRole<long>
 {
     
 }
