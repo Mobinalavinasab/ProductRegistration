@@ -57,7 +57,6 @@ public class BaseDto<TDto,TEntity,TKey> : ICustomMapping
     {
     }
 }
-
 public abstract class BaseDto<TDto, TEntity> : BaseDto<TDto, TEntity, int>
     where TDto : class, new()
     where TEntity : BaseEntity<int>, new()

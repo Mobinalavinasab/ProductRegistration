@@ -1,10 +1,14 @@
+using System.Security.Claims;
 using Application;
 using Application.AppDbContext;
+using Application.JWT;
 using Data.Repositories;
 using Infrastructure.Entity.Role;
 using Infrastructure.Entity.User;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +33,85 @@ builder.Services.AddIdentity<User, Role>(identityOptions =>
     .AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(typeof(ICustomMapping));
+
+builder.Services.AddScoped<IJWTRepository, JWTRepository>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddCookie(options =>
+{
+    options.AccessDeniedPath = "/";
+    options.LoginPath = "/";
+})
+.AddJwtBearer(options =>
+ {
+     var secretkey = System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"]);
+     var encryptionkey = System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:EncryptKey"]);
+
+     var validationParameters = new TokenValidationParameters
+     {
+         ClockSkew = TimeSpan.Zero, 
+         RequireSignedTokens = true,
+
+         ValidateIssuerSigningKey = true,
+         IssuerSigningKey = new SymmetricSecurityKey(secretkey),
+         RequireExpirationTime = true,
+         ValidateLifetime = true,
+
+         ValidateAudience = true, 
+         ValidAudience = builder.Configuration["JWT:Audience"],
+
+         ValidateIssuer = true, 
+         ValidIssuer = builder.Configuration["JWT:Issuer"],
+
+         TokenDecryptionKey = new SymmetricSecurityKey(encryptionkey)
+     };
+     options.RequireHttpsMetadata = false;
+     options.SaveToken = true;
+     options.TokenValidationParameters = validationParameters;
+     options.Events = new JwtBearerEvents
+     {
+         OnAuthenticationFailed = context =>
+         {
+             if (context.Exception != null)
+                 throw new Exception("Authentication failed.");
+             return Task.CompletedTask;
+         },
+         OnTokenValidated = async context =>
+         {
+             var signInManager = context.HttpContext.RequestServices.GetRequiredService<SignInManager<User>>();
+             var userRepository = context.HttpContext.RequestServices.GetRequiredService<IRepository<User>>();
+             var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
+             if (claimsIdentity.Claims?.Any() != true)
+                 context.Fail("This token has no claims.");
+             var securityStamp = claimsIdentity?.FindFirst(new ClaimsIdentityOptions().SecurityStampClaimType)?.Value;
+
+             var validatedUser = await signInManager.ValidateSecurityStampAsync(context.Principal);
+             if (validatedUser == null)
+                 context.Fail("Token security stamp is not valid.");
+         },
+         OnChallenge = context =>
+         {
+             if (context.Request.Path.ToString().Contains("report"))
+             {
+                 context.Response.Redirect("/login");
+                 context.HandleResponse();
+                 return Task.CompletedTask;
+             }
+             if (context.AuthenticateFailure != null)
+                 throw new Exception("Authenticate failure.");
+             throw new Exception("Authenticate failure.");
+         },
+         OnMessageReceived = context =>
+         {
+             return Task.CompletedTask;
+         }
+     };
+ });
+
 
 
 
