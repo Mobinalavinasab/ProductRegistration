@@ -8,7 +8,10 @@ using Infrastructure.Entity.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Office_management.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,6 +114,10 @@ builder.Services.AddAuthentication(options =>
          }
      };
  });
+
+builder.Services.Configure<DataProtectionTokenProviderOptions>(option => option.TokenLifespan = TimeSpan.FromHours(10));
+
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfigoration>();
 
 
 
