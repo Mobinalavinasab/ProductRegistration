@@ -1,8 +1,9 @@
 using Application.BaseDto;
+using Infrastructure.Entity.Product;
 
 namespace ProductRegistration.Model.ProductDto;
 
-public class ProductSelectDto : BaseDto<int>
+public class ProductSelectDto : BaseDto<ProductDto, Product, int>
 {
     public string Name { get; set; }
     public int ProduceDate { get; set; }

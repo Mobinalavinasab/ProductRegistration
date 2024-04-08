@@ -1,3 +1,4 @@
+using Application;
 using Application.AppDbContext;
 using Data.Repositories;
 using Infrastructure.Entity.Role;
@@ -26,6 +27,8 @@ builder.Services.AddIdentity<User, Role>(identityOptions =>
         identityOptions.User.RequireUniqueEmail = false;
     }).AddEntityFrameworkStores<MyAppDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddAutoMapper(typeof(ICustomMapping));
 
 
 
