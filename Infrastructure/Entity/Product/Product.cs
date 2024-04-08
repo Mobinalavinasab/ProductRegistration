@@ -1,10 +1,11 @@
 using Infrastructure.Entity.BaseEntity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
 namespace Infrastructure.Entity.Product;
 
+[Index(nameof(ManufactureEmail), IsUnique = true)]
+[Index(nameof(ProduceDate), IsUnique = true)]
 public class Product : BaseEntity<int>
 {
     public string Name { get; set; }

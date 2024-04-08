@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(MyAppDbContext))]
-    [Migration("20240408083020_Initial")]
+    [Migration("20240408142042_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -38,7 +38,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ManufactureEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ManufacturePhone")
                         .IsRequired()
@@ -55,6 +55,12 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ManufactureEmail")
+                        .IsUnique();
+
+                    b.HasIndex("ProduceDate")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 

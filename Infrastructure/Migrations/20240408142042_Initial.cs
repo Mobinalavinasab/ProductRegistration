@@ -168,7 +168,7 @@ namespace Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProduceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ManufacturePhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ManufactureEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManufactureEmail = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<long>(type: "bigint", nullable: true)
                 },
@@ -220,6 +220,18 @@ namespace Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_ManufactureEmail",
+                table: "Product",
+                column: "ManufactureEmail",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_ProduceDate",
+                table: "Product",
+                column: "ProduceDate",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_UserId",

@@ -26,6 +26,5 @@ public class MyAppDbContext : IdentityDbContext<User, Role, long, UserClaim, Use
         var EntitiesAssembly = typeof(IEntity).Assembly;
         builder.allEntity<IEntity>(EntitiesAssembly);
         builder.ApplyConfigurationsFromAssembly(EntitiesAssembly);
-        
     }
 }
