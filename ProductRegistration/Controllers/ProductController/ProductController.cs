@@ -2,7 +2,9 @@
 using AutoMapper.QueryableExtensions;
 using Data.Repositories;
 using Infrastructure.Entity.Product;
+using Infrastructure.Entity.User;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductRegistration.Model.ProductDto;
@@ -16,11 +18,13 @@ public class ProductController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly IRepository<Product> _repository;
+    private readonly UserManager<User> _userManager;
 
-    public ProductController(IMapper mapper, IRepository<Product> repository)
+    public ProductController(IMapper mapper, IRepository<Product> repository, UserManager<User> userManager )
     {
         _repository = repository;
         _mapper = mapper;
+        _userManager = userManager;
     }
     
     [HttpPost, Authorize]
@@ -72,4 +76,5 @@ public class ProductController : ControllerBase
             return BadRequest("Something went wrong");
         }
     }
+
 }
