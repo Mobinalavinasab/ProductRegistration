@@ -1,10 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Data.Repositories;
 using Infrastructure.Entity.Product;
-using Infrastructure.Entity.User;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductRegistration.Model.ProductDto;
@@ -18,19 +17,18 @@ public class ProductController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly IRepository<Product> _repository;
-    private readonly UserManager<User> _userManager;
-
-    public ProductController(IMapper mapper, IRepository<Product> repository, UserManager<User> userManager )
+    public ProductController(IMapper mapper, IRepository<Product> repository)
     {
         _repository = repository;
         _mapper = mapper;
-        _userManager = userManager;
     }
     
     [HttpPost, Authorize]
     public async Task<IActionResult> NewProduct(ProductDto productDto, CancellationToken cancellationToken)
     {
         var entity = _mapper.Map<Product>(productDto);
+        var id = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        entity.UserId = long.Parse(id);
         await _repository.AddAsync(entity, cancellationToken);
         var model = _repository
             .TableNoTracking
