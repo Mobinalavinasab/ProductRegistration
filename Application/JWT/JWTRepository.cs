@@ -62,9 +62,7 @@ public class JWTRepository : IJWTRepository
     public async Task<IEnumerable<Claim>> _getClaimsAsync(User user)
     {
         var result = await _signInManager.ClaimsFactory.CreateAsync(user);
-        //add custom claims
         var list1 = new List<Claim>(result.Claims);
-        //list1.Add(new Claim("DepartmentId", user.DepartmentId.ToString()));
         return list1;
     }
 }

@@ -12,17 +12,17 @@ namespace ProductRegistration.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-
 public class ProductController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly IRepository<Product> _repository;
+
     public ProductController(IMapper mapper, IRepository<Product> repository)
     {
         _repository = repository;
         _mapper = mapper;
     }
-    
+
     [HttpPost, Authorize]
     public async Task<IActionResult> NewProduct(ProductDto productDto, CancellationToken cancellationToken)
     {
@@ -56,23 +56,23 @@ public class ProductController : ControllerBase
     public IActionResult UpdateProduct(ProductDto productDto)
     {
         var data = _mapper.Map<Product>(productDto);
+        var id = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        data.UserId = long.Parse(id);
         _repository.Update(data);
         return Ok("Update done");
     }
 
     [HttpDelete, Authorize]
-    public async Task<IActionResult> DeleteProduct(ProductDto productDto)
+    public async Task<IActionResult> deleteItem(int id)
     {
-        if (productDto != null)
+        var modele = _repository.TableNoTracking.FirstOrDefault(p => Equals(p.Id, id));
+        if (modele == null)
         {
-            var data = _mapper.Map<Product>(productDto);
-            _repository.Delete(data);
-            return Ok("Deleted");
+            return NotFound();
         }
-        else
-        {
-            return BadRequest("Something went wrong");
-        }
-    }
 
+        var dto = _mapper.Map<ProductSelectDto>(modele);
+        _repository.Delete(modele);
+        return Ok(dto);
+    }
 }
