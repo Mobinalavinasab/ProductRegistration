@@ -1158,7 +1158,7 @@
           }
         }
       },
-      "Core/1.0.0": {
+      "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -1169,23 +1169,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
         },
         "compile": {
-          "bin/placeholder/Core.dll": {}
+          "bin/placeholder/Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Core.dll": {}
-        }
-      },
-      "Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Core": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Infrastructure.dll": {}
+          "bin/placeholder/Domain.dll": {}
         }
       }
     }
@@ -3459,20 +3446,15 @@
         "version.txt"
       ]
     },
-    "Core/1.0.0": {
+    "Domain/1.0.0": {
       "type": "project",
-      "path": "../Core/Core.csproj",
-      "msbuildProject": "../Core/Core.csproj"
-    },
-    "Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../Infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Infrastructure >= 1.0.0"
+      "Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3509,8 +3491,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\project\\ProductRegistration\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "E:\\project\\ProductRegistration\\Infrastructure\\Infrastructure.csproj"
+            "E:\\project\\ProductRegistration\\Domain\\Domain.csproj": {
+              "projectPath": "E:\\project\\ProductRegistration\\Domain\\Domain.csproj"
             }
           }
         }
