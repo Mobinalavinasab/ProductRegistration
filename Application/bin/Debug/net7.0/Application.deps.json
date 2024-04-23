@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Application/1.0.0": {
         "dependencies": {
-          "Infrastructure": "1.0.0"
+          "Domain": "1.0.0"
         },
         "runtime": {
           "Application.dll": {}
@@ -646,7 +646,7 @@
           }
         }
       },
-      "Core/1.0.0": {
+      "Domain/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
@@ -655,15 +655,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
         },
         "runtime": {
-          "Core.dll": {}
-        }
-      },
-      "Infrastructure/1.0.0": {
-        "dependencies": {
-          "Core": "1.0.0"
-        },
-        "runtime": {
-          "Infrastructure.dll": {}
+          "Domain.dll": {}
         }
       }
     }
@@ -1157,12 +1149,7 @@
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
-    "Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Infrastructure/1.0.0": {
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

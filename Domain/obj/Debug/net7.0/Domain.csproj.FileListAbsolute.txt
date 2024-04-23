@@ -1,0 +1,14 @@
+E:\project\ProductRegistration\Domain\bin\Debug\net7.0\Domain.deps.json
+E:\project\ProductRegistration\Domain\bin\Debug\net7.0\Domain.runtimeconfig.json
+E:\project\ProductRegistration\Domain\bin\Debug\net7.0\Domain.dll
+E:\project\ProductRegistration\Domain\bin\Debug\net7.0\Domain.pdb
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.dll
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\refint\Domain.dll
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.pdb
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\Domain.genruntimeconfig.cache
+E:\project\ProductRegistration\Domain\obj\Debug\net7.0\ref\Domain.dll

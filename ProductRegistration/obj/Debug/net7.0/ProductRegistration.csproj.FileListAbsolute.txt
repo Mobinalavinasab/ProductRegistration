@@ -58,10 +58,8 @@ E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\runtimes\win
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Application.dll
-E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Core.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Infrastructure.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Application.pdb
-E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Core.pdb
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Infrastructure.pdb
 E:\project\ProductRegistration\ProductRegistration\obj\Debug\net7.0\ProductRegistration.csproj.AssemblyReference.cache
 E:\project\ProductRegistration\ProductRegistration\obj\Debug\net7.0\ProductRegistration.GeneratedMSBuildEditorConfig.editorconfig
@@ -89,3 +87,5 @@ E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Microsoft.En
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Mono.TextTemplating.dll
 E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\System.CodeDom.dll
+E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Domain.dll
+E:\project\ProductRegistration\ProductRegistration\bin\Debug\net7.0\Domain.pdb
